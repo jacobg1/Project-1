@@ -1,3 +1,29 @@
 body {
+  background-color: lemonchiffon;
+  text-align: center;
+
+}
+.blue, .green, .purple, .red  {
+  height: 225px;
+  width: 225px;
+  border-radius: 224px;
+  display: inline-block;
+
+}
+.blue:hover, .green:hover, .purple:hover, .red:hover  {
+border: 3px solid black;
+}
+.blue {
+  background-color: blue;
+
+}
+
+.red {
   background-color: red;
+}
+.green {
+  background-color: green;
+}
+.purple {
+  background-color: purple;
 }

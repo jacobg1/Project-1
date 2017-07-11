@@ -3,13 +3,24 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <script src="simonModel.js" charset="utf-8"></script>
-    <script src="simonView.js" charset="utf-8"></script>
-    <script src="init.js" charset="utf-8"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
     <title>Simon Says</title>
   </head>
   <body>
-    <h1>Simon Says</h1>
-
+    <div class="container">
+      <h1>Simon Says</h1>
+        <div class="game-board">
+          <div class="blue"></div>
+          <div class="purple"></div>
+          <div class="red"></div>
+          <div class="green"></div>
+        </div>
+    </div>
+    <script src="simonModel.js" charset="utf-8"></script>
+    <script src="simonView.js" charset="utf-8"></script>
+    <script src="init.js" charset="utf-8"></script>
   </body>
 </html>
