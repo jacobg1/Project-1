@@ -6,7 +6,7 @@ class SimonModel {
     // create empty array for user input pattern
     this.userPattern = []
     // set level, this will increase in increments of one
-    this.level = 0
+    this.level = 1
     this.clicks = -1
     this.match = false
     // this.lastSimon = this.simonPattern[this.simonPattern.length - 1]
@@ -39,7 +39,9 @@ class SimonModel {
   comparePattern () {
     // set winning condition
     if (this.userPattern.length === this.simonPattern.length && this.userPattern[this.clicks] === this.simonPattern[this.clicks]) {
-        // this.setSimonPattern()
+      this.setSimonPattern()
+      this.setLevel()
+      this.userPattern = []
       console.log('compare check pass')
       console.log('simon patternCP:')
       console.log(this.simonPattern)
@@ -58,3 +60,8 @@ class SimonModel {
     }
   }
 }
+// arr.forEach ((val) => {
+// find dom circle for each value and change class
+// flashCircle(val)
+// }
+//check only after lengths are the same dont check until this

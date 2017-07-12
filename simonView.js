@@ -14,7 +14,6 @@ class SimonView {
     // initialze change handle listeners
     this.listen()
     // initialze simons pattern
-    this.model.setLevel()
     this.model.setSimonPattern()
   }
   // associate event listeners with inputs
@@ -40,26 +39,32 @@ class SimonView {
   handleRedChange () {
     this.inputs.r.addClass('animate')
     console.log('red clicked')
+    this.model.clicks += 1
     this.model.addToUserPattern('r')
     console.log(this.model.userPattern)
+    this.model.comparePattern()
   }
   handlePurpleChange () {
     this.inputs.p.addClass('animate')
     console.log('purple clicked')
+    this.model.clicks += 1
     this.model.addToUserPattern('p')
     console.log(this.model.userPattern)
+    this.model.comparePattern()
   }
   handleGreenChange () {
     this.model.addToUserPattern('g')
     console.log(this.model.userPattern)
     this.renderGreenBlink()
+    this.model.clicks += 1
     console.log('green clicked')
     console.log('user pattern:')
     console.log(this.model.userPattern)
+    this.model.comparePattern()
   }
 // change the button back to normal to create flash effect
 
-  renderGreenBlink () {
+  renderGreenBlink (val) {
     this.inputs.g.addClass('flash')
     setTimeout(function () {
       $('.green').removeClass('flash')
