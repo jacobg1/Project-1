@@ -33,7 +33,6 @@ class SimonView {
     // on click add string b to user pattern array
     this.model.addToUserPattern('b')
     console.log('user patternBC:')
-    console.log(this.model.userPattern)
     // compare user pattern to simon pattern
     this.model.comparePattern()
   }
@@ -42,7 +41,6 @@ class SimonView {
     console.log('red clicked')
     this.model.clicks += 1
     this.model.addToUserPattern('r')
-    console.log(this.model.userPattern)
     this.model.comparePattern()
   }
   handlePurpleChange () {
@@ -50,7 +48,6 @@ class SimonView {
     console.log('purple clicked')
     this.model.clicks += 1
     this.model.addToUserPattern('p')
-    console.log(this.model.userPattern)
     this.model.comparePattern()
   }
   handleGreenChange () {
@@ -60,7 +57,6 @@ class SimonView {
     this.model.clicks += 1
     console.log('green clicked')
     console.log('user pattern:')
-    console.log(this.model.userPattern)
     this.model.comparePattern()
   }
 // change the button back to normal to create flash effect

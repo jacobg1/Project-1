@@ -24,38 +24,49 @@ class SimonModel {
     for (let i = 0; i <= this.level; i++) {
       this.text = this.possibleText.charAt(Math.floor(Math.random() * this.possibleText.length))
     }
-
-    // add random generated letter to simonPattern
     this.simonPattern.push(this.text)
+    // add random generated letter to simonPattern
   }
   addToUserPattern (x) {
     // add user choice to user pattern
     this.userPattern.push(x)
   }
-  // shiftUserPattern () {
-  //    this.userPattern.shift()
-  //  }
+  playGame () {
+    this.clicks = -1
+    this.userPattern = []
+    this.setSimonPattern()
+    console.log(this.simonPattern);
+  }
   // create method to compare simonPattern to userPattern
   comparePattern () {
     // set winning condition
-    if (this.userPattern.length === this.simonPattern.length) {
-      for (let t = 0; t < this.simonPattern.length; t++) {
+    // if (this.userPattern.length === this.simonPattern.length) {
+      // for (let t = 0; t < this.simonPattern.length; t++) {
         // compare
-        if (this.userPattern[t] === this.simonPattern[t]) {
-          console.log('level' + this.level)
-          console.log('clicks' + this.clicks)
-          this.userPattern = []
-          this.setSimonPattern()
-          console.log('compare check pass')
-          console.log('simon patternCP:')
-          console.log(this.simonPattern)
-          console.log('user patternCP:')
-          console.log(this.userPattern)
-        }
+    if (this.userPattern[this.clicks] !== this.simonPattern[this.clicks]) {
+      console.log('level' + this.level)
+      console.log('clicks' + this.clicks)
+      console.log('you lose')
+      this.simonPattern = []
+      this.playGame()
+      console.log('simon patternCP:')
+      console.log(this.simonPattern)
+      console.log('user patternCP:')
+      console.log(this.userPattern)
+    } else {
+      if (this.userPattern.length === this.simonPattern.length) {
+        console.log('you win')
+        this.level++
+        console.log(this.level);
+        this.playGame()
+
       }
     }
   }
-}
+
+    }
+  // }
+// }
 // arr.forEach ((val) => {
 // find dom circle for each value and change class
 // flashCircle(val)
