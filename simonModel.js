@@ -1,19 +1,25 @@
 /* global $ */
 class SimonModel {
   constructor () {
-    this.simonPattern = [] // create empty array for pattern from game
-    this.userPattern = []   // create empty array for user input pattern
-    this.level = 0          // set level, this
+    // create empty array for generated pattern
+    this.simonPattern = []
+    // create empty array for user input pattern
+    this.userPattern = []
+    // set level, this will increase in increments of one
+    this.level = 0
   }
-  setSimonPattern () { // associate random # with value from initialPattern array
+  setSimonPattern () {
     this.text = ''
     this.possibleText = 'bgrp'
-    // var tempLevel = this.level
+
+    // associate random # with value from initialPattern array
     for (let i = 1; i <= this.level; i++) {
       this.text = this.possibleText.charAt(Math.floor(Math.random() * this.possibleText.length))
       console.log(this.text)
     }
+    //increase level by 1
     this.level += 1
+    //add random generated letter to simonPattern
     this.simonPattern.push(this.text)
   }
 }

@@ -3,7 +3,7 @@ body {
   text-align: center;
 
 }
-#blue, #green, #purple, #red  {
+.blue, .green, .purple, .red  {
   opacity: 0.6;
   height: 225px;
   width: 225px;
@@ -11,21 +11,21 @@ body {
   display: inline-block;
 
 }
-#blue:hover, #green:hover, #purple:hover, #red:hover  {
+.blue:hover, .green:hover, .purple:hover, .red:hover  {
 border: 3px solid black;
 }
-#blue {
+.blue {
   background-color: blue;
 }
-#red {
+.red {
   background-color: red;
 }
-#green {
+.green {
   background-color: green;
 }
-#purple {
+.purple {
   background-color: purple;
 }
 .animate {
-  background-color: black;
+  opacity: 1;
 }
