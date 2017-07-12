@@ -14,6 +14,7 @@ class SimonView {
     // initialze change handle listeners
     this.listen()
     // initialze simons pattern
+    this.model.setLevel()
     this.model.setSimonPattern()
   }
   // associate event listeners with inputs
@@ -29,8 +30,10 @@ class SimonView {
     console.log('blue clicked')
     // on click add string b to user pattern array
     this.model.addToUserPattern('b')
-    console.log('user pattern:')
+    console.log('user patternBC:')
     console.log(this.model.userPattern)
+    // compare user pattern to simon pattern
+    this.model.comparePattern()
   }
   handleRedChange () {
     this.inputs.r.addClass('animate')
