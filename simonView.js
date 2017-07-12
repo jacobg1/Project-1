@@ -28,6 +28,8 @@ class SimonView {
   handleBlueChange () {
     this.inputs.b.addClass('animate')
     console.log('blue clicked')
+    this.model.clicks += 1
+    console.log(this.model.clicks);
     // on click add string b to user pattern array
     this.model.addToUserPattern('b')
     console.log('user patternBC:')

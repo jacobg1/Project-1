@@ -2,11 +2,13 @@
 class SimonModel {
   constructor () {
     // create empty array for generated pattern
-    this.simonPattern = ['b']
+    this.simonPattern = []
     // create empty array for user input pattern
     this.userPattern = []
     // set level, this will increase in increments of one
     this.level = 0
+    this.clicks = -1
+    this.match = false
     // this.lastSimon = this.simonPattern[this.simonPattern.length - 1]
     // this.lastUser = this.userPattern[this.userPattern.length - 1]
   }
@@ -35,24 +37,24 @@ class SimonModel {
   //  }
   // create method to compare simonPattern to userPattern
   comparePattern () {
-    for (let t = 0; t < this.simonPattern.length; t++) {
-    // compare
-      if (this.userPattern[t] === this.simonPattern[t]) {
+    // set winning condition
+    if (this.userPattern.length === this.simonPattern.length && this.userPattern[this.clicks] === this.simonPattern[this.clicks]) {
         // this.setSimonPattern()
-        console.log('compare check pass')
-        console.log('simon patternCP:')
-        console.log(this.simonPattern)
-        console.log('user patternCP:')
-        console.log(this.userPattern)
-      } else {
-        console.log('compare check fail')
-        console.log('simon patternCP:')
-        console.log(this.simonPattern)
-        console.log('user pattern:')
-        console.log(this.userPattern)
-
-      }
+      console.log('compare check pass')
+      console.log('simon patternCP:')
+      console.log(this.simonPattern)
+      console.log('user patternCP:')
+      console.log(this.userPattern)
+    } else if (this.userPattern[this.clicks] === this.simonPattern[this.clicks]) {
+      this.comparePattern()
+      return
+      console.log('compare check fail')
+      console.log('simon patternCP:')
+      console.log(this.simonPattern)
+      console.log('user pattern:')
+      console.log(this.userPattern)
+    } else {
+      console.log('you lose')
     }
   }
-
 }
