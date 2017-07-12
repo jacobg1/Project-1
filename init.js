@@ -5,6 +5,4 @@ $(document).ready(function () {
   console.log(newGame);
   console.log(game);
   console.log(game.simonPattern);
-  game.setSimonPattern()
-  console.log(game.simonPattern);
 })
