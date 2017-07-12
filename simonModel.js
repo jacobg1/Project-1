@@ -6,7 +6,7 @@ class SimonModel {
     // create empty array for user input pattern
     this.userPattern = []
     // set level, this will increase in increments of one
-    this.level = 1
+    this.level = 0
     this.clicks = -1
     this.match = false
     // this.lastSimon = this.simonPattern[this.simonPattern.length - 1]
@@ -21,7 +21,7 @@ class SimonModel {
     this.possibleText = 'bgrp'
 
     // associate random # with value from initialPattern array
-    for (let i = 1; i <= this.level; i++) {
+    for (let i = 0; i <= this.level; i++) {
       this.text = this.possibleText.charAt(Math.floor(Math.random() * this.possibleText.length))
     }
 
@@ -38,25 +38,21 @@ class SimonModel {
   // create method to compare simonPattern to userPattern
   comparePattern () {
     // set winning condition
-    if (this.userPattern.length === this.simonPattern.length && this.userPattern[this.clicks] === this.simonPattern[this.clicks]) {
-      this.setSimonPattern()
-      this.setLevel()
-      this.userPattern = []
-      console.log('compare check pass')
-      console.log('simon patternCP:')
-      console.log(this.simonPattern)
-      console.log('user patternCP:')
-      console.log(this.userPattern)
-    } else if (this.userPattern[this.clicks] === this.simonPattern[this.clicks]) {
-      this.comparePattern()
-      return
-      console.log('compare check fail')
-      console.log('simon patternCP:')
-      console.log(this.simonPattern)
-      console.log('user pattern:')
-      console.log(this.userPattern)
-    } else {
-      console.log('you lose')
+    if (this.userPattern.length === this.simonPattern.length) {
+      for (let t = 0; t < this.simonPattern.length; t++) {
+        // compare
+        if (this.userPattern[t] === this.simonPattern[t]) {
+          console.log('level' + this.level)
+          console.log('clicks' + this.clicks)
+          this.userPattern = []
+          this.setSimonPattern()
+          console.log('compare check pass')
+          console.log('simon patternCP:')
+          console.log(this.simonPattern)
+          console.log('user patternCP:')
+          console.log(this.userPattern)
+        }
+      }
     }
   }
 }
@@ -64,4 +60,4 @@ class SimonModel {
 // find dom circle for each value and change class
 // flashCircle(val)
 // }
-//check only after lengths are the same dont check until this
+// check only after lengths are the same dont check until this
