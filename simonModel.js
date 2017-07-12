@@ -23,6 +23,7 @@ class SimonModel {
     this.simonPattern.push(this.text)
   }
   addToUserPattern (x) {
+    //add user choice to user pattern
     this.userPattern.push(x)
   }
 }

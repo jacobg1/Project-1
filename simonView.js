@@ -49,6 +49,8 @@ class SimonView {
     console.log(this.model.userPattern)
     this.renderGreenBlink()
     console.log('green clicked')
+    console.log('user pattern:')
+    console.log(this.model.userPattern)
   }
 // change the button back to normal to create flash effect
 
