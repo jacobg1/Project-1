@@ -2,7 +2,7 @@
 class SimonModel {
   constructor () {
     // create empty array for generated pattern
-    this.simonPattern = []
+    this.simonPattern = ['b']
     // create empty array for user input pattern
     this.userPattern = []
     // set level, this will increase in increments of one
@@ -37,9 +37,9 @@ class SimonModel {
   comparePattern () {
     for (let t = 0; t < this.simonPattern.length; t++) {
     // compare
-      if ((this.userPattern[t]) === (this.simonPattern[t])) {
+      if (this.userPattern[t] === this.simonPattern[t]) {
         // this.setSimonPattern()
-        console.log('compare check fail')
+        console.log('compare check pass')
         console.log('simon patternCP:')
         console.log(this.simonPattern)
         console.log('user patternCP:')
