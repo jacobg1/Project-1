@@ -4,7 +4,7 @@ class SimonModel {
     // create empty array for generated pattern
     this.simonPattern = []
     // create empty array for user input pattern
-    this.userPattern = []
+    this.userPattern = ['']
     // set level, this will increase in increments of one
     this.level = 0
   }
@@ -17,9 +17,12 @@ class SimonModel {
       this.text = this.possibleText.charAt(Math.floor(Math.random() * this.possibleText.length))
       console.log(this.text)
     }
-    //increase level by 1
+    // increase level by 1
     this.level += 1
-    //add random generated letter to simonPattern
+    // add random generated letter to simonPattern
     this.simonPattern.push(this.text)
+  }
+  addToUserPattern (x) {
+    this.userPattern.push(x)
   }
 }

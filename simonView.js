@@ -27,24 +27,44 @@ class SimonView {
   handleBlueChange () {
     this.inputs.b.addClass('animate')
     console.log('blue clicked')
+    // on click add string b to user pattern array
+    this.model.addToUserPattern('b')
+    console.log('user pattern:')
+    console.log(this.model.userPattern)
   }
   handleRedChange () {
     this.inputs.r.addClass('animate')
     console.log('red clicked')
+    this.model.addToUserPattern('r')
+    console.log(this.model.userPattern)
   }
   handlePurpleChange () {
     this.inputs.p.addClass('animate')
     console.log('purple clicked')
+    this.model.addToUserPattern('p')
+    console.log(this.model.userPattern)
   }
   handleGreenChange () {
-    this.inputs.g.addClass('animate')
-    this.renderNormal()
+    this.model.addToUserPattern('g')
+    console.log(this.model.userPattern)
+    this.renderGreenBlink()
     console.log('green clicked')
   }
+// change the button back to normal to create flash effect
 
-  renderNormal () {
+  renderGreenBlink () {
+    this.inputs.g.addClass('flash')
     setTimeout(function () {
-      $('.green').addClass('unanimate')
-    }, 400)
+      $('.green').removeClass('flash')
+    }, 200)
+  }
+  renderRedBlink () {
+
+  }
+  renderBlueBlink () {
+
+  }
+  renderPurpleBlink () {
+
   }
 }
