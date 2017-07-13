@@ -31,6 +31,8 @@ class SimonView {
   handleBlueChange () {
     this.renderBlueBlink()
     this.model.clicks += 1
+    this.winCheck()
+
     this.model.addToUserPattern('b')
     console.log(this.model.userPattern)
     this.model.comparePattern()
@@ -38,6 +40,8 @@ class SimonView {
   handleRedChange () {
     this.renderRedBlink()
     this.model.clicks += 1
+    this.winCheck()
+
     this.model.addToUserPattern('r')
     console.log(this.model.userPattern)
     console.log(this.model.clicks)
@@ -47,13 +51,17 @@ class SimonView {
   handlePurpleChange () {
     this.renderPurpleBlink()
     this.model.clicks += 1
+    this.winCheck()
+
     this.model.addToUserPattern('p')
     console.log(this.model.userPattern)
     this.model.comparePattern()
   }
   handleGreenChange () {
     this.renderGreenBlink()
+
     this.model.clicks += 1
+    this.winCheck()
     this.model.addToUserPattern('g')
     console.log(this.model.userPattern)
     this.model.comparePattern()
@@ -64,6 +72,11 @@ class SimonView {
     // setTimeout(function () {
     //   $('.green').removeClass('flash')
     // }, 400)
+  }
+  winCheck () {
+    if (this.model.level === 2 && this.model.level === this.model.clicks) {
+      $('h1').text('WINNER')
+    }
   }
   renderRedBlink () {
     $('.red').fadeOut(100).fadeIn(100)

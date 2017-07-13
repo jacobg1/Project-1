@@ -89,6 +89,7 @@ class SimonModel {
 
     } else {
       console.log('no match')
+      alert('loser')
       this.playGame()
       this.setSimonPattern()
       this.simonPatternFlash()
