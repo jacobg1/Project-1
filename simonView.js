@@ -15,7 +15,8 @@ class SimonView {
     this.listen()
     // initialze simons pattern
     this.model.setSimonPattern()
-
+    this.model.simonPatternFlash()
+    // this.flashCircle()
   }
   // associate event listeners with inputs
   listen () {
@@ -25,56 +26,77 @@ class SimonView {
     this.inputs.p.on('click', this.handlePurpleChange.bind(this))
   }
   // log click for repective button / color and button flash
+  // on click add string b to user pattern array
+  // compare user pattern to simon pattern
   handleBlueChange () {
-    this.inputs.b.addClass('animate')
-    console.log('blue clicked')
-    console.log('clicks' + this.model.clicks)
+    this.renderBlueBlink()
     this.model.clicks += 1
-    // on click add string b to user pattern array
     this.model.addToUserPattern('b')
-    console.log('user patternBC:')
-    // compare user pattern to simon pattern
-    this.model.comparePattern()
+    console.log(this.model.userPattern)
+    if (this.model.clicks === this.model.level) {
+      this.model.comparePattern()
+    }
   }
   handleRedChange () {
-    this.inputs.r.addClass('animate')
-    console.log('red clicked')
+    this.renderRedBlink()
     this.model.clicks += 1
     this.model.addToUserPattern('r')
-    this.model.comparePattern()
+    console.log(this.model.userPattern)
+    if (this.model.clicks === this.model.level) {
+      this.model.comparePattern()
+    }
   }
   handlePurpleChange () {
-    this.inputs.p.addClass('animate')
-    console.log('purple clicked')
+    this.renderPurpleBlink()
     this.model.clicks += 1
     this.model.addToUserPattern('p')
-    this.model.comparePattern()
+    console.log(this.model.userPattern)
+    if (this.model.clicks === this.model.level) {
+      this.model.comparePattern()
+    }
   }
   handleGreenChange () {
-    this.model.addToUserPattern('g')
-    console.log(this.model.userPattern)
     this.renderGreenBlink()
     this.model.clicks += 1
-    console.log('green clicked')
-    console.log('user pattern:')
-    this.model.comparePattern()
-  }
+    this.model.addToUserPattern('g')
+    console.log(this.model.userPattern)
+    if (this.model.clicks === this.model.level) {
+      this.model.comparePattern()
+    }
+   }
+  // handleGreenFlash () {
+  //
+  // }
+// make colors flash based on simon pattern, this should happen after a letter is added to the simon array
+  // flashCircle () {
+  //   for (let z = 1; z <= this.model.simonPattern.length; z++) {
+  //     this.renderGreenBlink()
+  //   }
+  // }
 // change the button back to normal to create flash effect
-
-  renderGreenBlink (val) {
+  renderGreenBlink () {
     this.inputs.g.addClass('flash')
     setTimeout(function () {
       $('.green').removeClass('flash')
     }, 200)
   }
   renderRedBlink () {
-
+    this.inputs.r.addClass('flash')
+    setTimeout(function () {
+      $('.red').removeClass('flash')
+    }, 200)
   }
   renderBlueBlink () {
-
+    this.inputs.b.addClass('flash')
+    setTimeout(function () {
+      $('.blue').removeClass('flash')
+    }, 200)
   }
   renderPurpleBlink () {
-
+    this.inputs.p.addClass('flash')
+    setTimeout(function () {
+      $('.purple').removeClass('flash')
+    }, 200)
   }
 
 }

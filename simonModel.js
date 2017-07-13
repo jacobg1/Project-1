@@ -6,67 +6,83 @@ class SimonModel {
     // create empty array for user input pattern
     this.userPattern = []
     // set level, this will increase in increments of one
-    this.level = 0
-    this.clicks = -1
-    this.match = false
-    // this.lastSimon = this.simonPattern[this.simonPattern.length - 1]
-    // this.lastUser = this.userPattern[this.userPattern.length - 1]
+    this.level = 1
+    this.clicks = 0
+    //this.text
   }
-  setLevel () {
-    // increase level by 1
+  nextRound () {
     this.level += 1
+    this.clicks = 0
+    this.userPattern = []
+    this.setSimonPattern()
+    this.simonPatternFlash()
   }
+
   setSimonPattern () {
-    this.text = ''
+    // this.text = ''
     this.possibleText = 'bgrp'
 
-    // associate random # with value from initialPattern array
-    for (let i = 0; i <= this.level; i++) {
+    // associate random # with value from initialPattern array // add random generated letter to simonPattern
+    for (let i = 0; i < this.level; i++) {
       this.text = this.possibleText.charAt(Math.floor(Math.random() * this.possibleText.length))
     }
     this.simonPattern.push(this.text)
-    // add random generated letter to simonPattern
+    console.log(this.simonPattern)
+  }
+  simonPatternFlash () {
+    for (let i = 0; i < this.simonPattern.length; i++) {
+      if (this.simonPattern[i] === 'g') {
+        $('.green').addClass('flash')
+      } else if (this.simonPattern[i] === 'b') {
+        $('.blue').addClass('flash')
+      } else if (this.simonPattern[i] === 'r') {
+        $('.red').addClass('flash')
+      } else {
+        $('.purple').addClass('flash')
+      }
+    }
   }
   addToUserPattern (x) {
     // add user choice to user pattern
     this.userPattern.push(x)
   }
   playGame () {
-    this.clicks = -1
+    this.level = 1
+    this.clicks = 0
     this.userPattern = []
-    this.setSimonPattern()
-    console.log(this.simonPattern);
+    this.simonPattern = []
+  }
+
+  newGame () {
+    console.log('new game')
   }
   // create method to compare simonPattern to userPattern
   comparePattern () {
-    // set winning condition
-    // if (this.userPattern.length === this.simonPattern.length) {
-      // for (let t = 0; t < this.simonPattern.length; t++) {
-        // compare
-    if (this.userPattern[this.clicks] !== this.simonPattern[this.clicks]) {
-      console.log('level' + this.level)
-      console.log('clicks' + this.clicks)
-      console.log('you lose')
-      this.simonPattern = []
-      this.playGame()
-      console.log('simon patternCP:')
-      console.log(this.simonPattern)
-      console.log('user patternCP:')
-      console.log(this.userPattern)
-    } else {
-      if (this.userPattern.length === this.simonPattern.length) {
-        console.log('you win')
-        this.level++
-        console.log(this.level);
+    // compare pattern if match
+    for (let i = 0; i < this.level; i++) {
+      if (this.userPattern[i] === this.simonPattern[i]) {
+        console.log('match')
+        this.nextRound()
+      } else {
+        console.log('no match')
         this.playGame()
-
       }
+    // if (this.userPattern[this.clicks] !== this.simonPattern[this.clicks]) {
+    //   this.level = 0
+    //   console.log(this.simonPattern)
+    //   console.log(this.userPattern)
+    // } else {
+    //   console.log('you win')
+    //   console.log(this.simonPattern)
+    //   console.log(this.userPattern)
+    //   this.level++
+    //   console.log(this.level)
+    //   this.playGame()
+    // }
     }
   }
+}
 
-    }
-  // }
-// }
 // arr.forEach ((val) => {
 // find dom circle for each value and change class
 // flashCircle(val)
