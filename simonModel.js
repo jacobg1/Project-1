@@ -15,14 +15,13 @@ class SimonModel {
     // this.level += 1
     this.clicks = 0
     this.userPattern = []
-    setTimeout(this.setSimonPattern(), 150)
-    setTimeout(this.simonPatternFlash(), 200)
+    this.setSimonPattern()
+    this.simonPatternFlash()
   }
 
   setSimonPattern () {
     this.text = ''
     this.possibleText = 'bgrp'
-
     // associate random # with value from initialPattern array // add random generated letter to simonPattern
     for (let i = 0; i < this.level; i++) {
       this.text = this.possibleText.charAt(Math.floor(Math.random() * this.possibleText.length))
@@ -36,44 +35,57 @@ class SimonModel {
   //   }
   // }
   simonPatternFlash () {
+    let inputs = {
+      b: $('.blue'),
+      g: $('.green'),
+      r: $('.red'),
+      p: $('.purple')
+    }
+
     for (let i = 0; i < this.simonPattern.length; i++) {
-      if (this.simonPattern[i] === 'g') {
-        setTimeout(function () {
-          $('.green').addClass('flash')
-        }, (i + 1) * 1000)
-        setTimeout(function () {
-          $('.green').removeClass('flash')
-        }, i  * 1000)
-      } else if (this.simonPattern[i] === 'b') {
-        setTimeout(function () {
-          $('.blue').addClass('flash')
-        }, (i + 1)  * 1000)
-        setTimeout(function () {
-          $('.blue').removeClass('flash')
-        }, i  * 1000)
-      } else if (this.simonPattern[i] === 'r') {
-        setTimeout(function () {
-          $('.red').addClass('flash')
-        }, (i + 1)  * 1000)
-        setTimeout(function () {
-          $('.red').removeClass('flash')
-        }, i * 1000)
-      } else if (this.simonPattern[i] === 'p') {
-        setTimeout(function () {
-          $('.purple').addClass('flash')
-        }, (i + 1) * 1000)
-        setTimeout(function () {
-          $('.purple').removeClass('flash')
-        }, i * 1000)
-      }
+      // if (this.simonPattern[i] === 'g') {
+      let char = this.simonPattern[i]
+
+      //let that = this
+      setTimeout(function () {
+        inputs[char].addClass('flash')
+console.log(char, inputs[char]);
+      }, (i + 1) * 1000)
+      setTimeout(function () {
+        inputs[char].removeClass('flash')
+        console.log(char, inputs[char]);
+      }, (i + 1) * 1300)
+    }
+  }
+      // } else if (this.simonPattern[i] === 'b') {
+      //   setTimeout(function () {
+      //     $('.blue').addClass('flash')
+      //   }, (i + 1) * 1000)
+      //   setTimeout(function () {
+      //     $('.blue').removeClass('flash')
+      //   }, i * 1000)
+      // } else if (this.simonPattern[i] === 'r') {
+      //   setTimeout(function () {
+      //     $('.red').addClass('flash')
+      //   }, (i + 1) * 1000)
+      //   setTimeout(function () {
+      //     $('.red').removeClass('flash')
+      //   }, i * 1000)
+      // } else if (this.simonPattern[i] === 'p') {
+      //   setTimeout(function () {
+      //     $('.purple').addClass('flash')
+      //   }, (i + 1) * 1000)
+      //   setTimeout(function () {
+      //     $('.purple').removeClass('flash')
+      //   }, i * 1000)
 
       // this.counter += 1
-    }
+
     // if (this.counter < this.level) {
     //   this.counter += 1
-    //   setTimeout(this.simonPatternFlash(), 300)
+    //   setTimeout(this.simonPatternFlash(), 1200)
     // }
-  }
+
 
   addToUserPattern (x) {
     // add user choice to user pattern
@@ -109,6 +121,7 @@ class SimonModel {
       console.log('no match')
       this.playGame()
       this.setSimonPattern()
+      this.simonPatternFlash()
     }
   }
 }

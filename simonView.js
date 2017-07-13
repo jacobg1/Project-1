@@ -33,59 +33,49 @@ class SimonView {
     this.model.clicks += 1
     this.model.addToUserPattern('b')
     console.log(this.model.userPattern)
-      this.model.comparePattern()
-    
+    this.model.comparePattern()
   }
   handleRedChange () {
     this.renderRedBlink()
     this.model.clicks += 1
     this.model.addToUserPattern('r')
     console.log(this.model.userPattern)
-      console.log(this.model.clicks);
-      console.log(this.model.level);
-      this.model.comparePattern()
-
+    console.log(this.model.clicks)
+    console.log(this.model.level)
+    this.model.comparePattern()
   }
   handlePurpleChange () {
     this.renderPurpleBlink()
     this.model.clicks += 1
     this.model.addToUserPattern('p')
     console.log(this.model.userPattern)
-      this.model.comparePattern()
-
-
+    this.model.comparePattern()
   }
   handleGreenChange () {
     this.renderGreenBlink()
     this.model.clicks += 1
     this.model.addToUserPattern('g')
     console.log(this.model.userPattern)
-      this.model.comparePattern()
-
+    this.model.comparePattern()
   }
   renderGreenBlink () {
-    this.inputs.g.addClass('flash')
-    setTimeout(function () {
-      $('.green').removeClass('flash')
-    }, 200)
+      $('.green').fadeOut(100).fadeIn(100)
+
+    // setTimeout(function () {
+    //   $('.green').removeClass('flash')
+    // }, 400)
   }
   renderRedBlink () {
-    this.inputs.r.addClass('flash')
-    setTimeout(function () {
-      $('.red').removeClass('flash')
-    }, 200)
+    $('.red').fadeOut(100).fadeIn(100)
+
   }
   renderBlueBlink () {
-    this.inputs.b.addClass('flash')
-    setTimeout(function () {
-      $('.blue').removeClass('flash')
-    }, 200)
+    $('.blue').fadeOut(100).fadeIn(100)
+
   }
   renderPurpleBlink () {
-    this.inputs.p.addClass('flash')
-    setTimeout(function () {
-      $('.purple').removeClass('flash')
-    }, 200)
+    $('.purple').fadeOut(100).fadeIn(100)
+
   }
 
 }

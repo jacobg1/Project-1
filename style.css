@@ -17,15 +17,25 @@ border: 3px solid black;
 .blue {
   background-color: blue;
 }
+.blue-blink {
+  opacity: 1;
+}
 .red {
   background-color: red;
+}
+.red-blink {
+  opacity: 1;
 }
 .green {
   background-color: green;
 }
+.green-blink {
+  opacity: 1;
+}
 .purple {
   background-color: purple;
 }
+
 .flash {
   -moz-animation: flash 1s ease-out;
   -moz-animation-iteration-count: 1;
