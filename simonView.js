@@ -59,7 +59,7 @@ class SimonView {
     this.model.comparePattern()
   }
   renderGreenBlink () {
-      $('.green').fadeOut(100).fadeIn(100)
+    $('.green').fadeOut(100).fadeIn(100)
 
     // setTimeout(function () {
     //   $('.green').removeClass('flash')
@@ -67,15 +67,12 @@ class SimonView {
   }
   renderRedBlink () {
     $('.red').fadeOut(100).fadeIn(100)
-
   }
   renderBlueBlink () {
     $('.blue').fadeOut(100).fadeIn(100)
-
   }
   renderPurpleBlink () {
     $('.purple').fadeOut(100).fadeIn(100)
-
   }
 
 }
