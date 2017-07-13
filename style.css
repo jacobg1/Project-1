@@ -42,6 +42,9 @@ border: 3px solid black;
 	width: 300px;
 
 }
+button {
+float: left;
+}
 .red-blink {
   opacity: 1;
 }
