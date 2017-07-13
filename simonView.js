@@ -63,17 +63,7 @@ class SimonView {
     if (this.model.clicks === this.model.level) {
       this.model.comparePattern()
     }
-   }
-  // handleGreenFlash () {
-  //
-  // }
-// make colors flash based on simon pattern, this should happen after a letter is added to the simon array
-  // flashCircle () {
-  //   for (let z = 1; z <= this.model.simonPattern.length; z++) {
-  //     this.renderGreenBlink()
-  //   }
-  // }
-// change the button back to normal to create flash effect
+  }
   renderGreenBlink () {
     this.inputs.g.addClass('flash')
     setTimeout(function () {

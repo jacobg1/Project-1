@@ -67,18 +67,6 @@ class SimonModel {
         console.log('no match')
         this.playGame()
       }
-    // if (this.userPattern[this.clicks] !== this.simonPattern[this.clicks]) {
-    //   this.level = 0
-    //   console.log(this.simonPattern)
-    //   console.log(this.userPattern)
-    // } else {
-    //   console.log('you win')
-    //   console.log(this.simonPattern)
-    //   console.log(this.userPattern)
-    //   this.level++
-    //   console.log(this.level)
-    //   this.playGame()
-    // }
     }
   }
 }
