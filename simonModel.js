@@ -66,6 +66,7 @@ class SimonModel {
     this.clicks = 0
     this.userPattern = []
     this.simonPattern = []
+    this.nextRound()
   }
 
   // create method to compare simonPattern to userPattern
@@ -90,9 +91,8 @@ class SimonModel {
     } else {
       console.log('no match')
       alert('loser')
-      this.playGame()
-      this.setSimonPattern()
-      this.simonPatternFlash()
+      // this.playGame()
+
     }
   }
 }

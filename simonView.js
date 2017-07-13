@@ -9,13 +9,13 @@ class SimonView {
       b: $('.blue'),
       g: $('.green'),
       r: $('.red'),
-      p: $('.purple')
+      p: $('.purple'),
+      startButton: $('.start')
     }
     // initialze change handle listeners
     this.listen()
     // initialze simons pattern
-    this.model.setSimonPattern()
-    this.model.simonPatternFlash()
+
     // this.flashCircle()
   }
   // associate event listeners with inputs
@@ -24,10 +24,14 @@ class SimonView {
     this.inputs.g.on('click', this.handleGreenChange.bind(this))
     this.inputs.r.on('click', this.handleRedChange.bind(this))
     this.inputs.p.on('click', this.handlePurpleChange.bind(this))
+    this.inputs.startButton.on('click', this.handleStartGame.bind(this))
   }
   // log click for repective button / color and button flash
   // on click add string b to user pattern array
   // compare user pattern to simon pattern
+  handleStartGame () {
+    this.model.playGame()
+  }
   handleBlueChange () {
     this.renderBlueBlink()
     this.model.clicks += 1
