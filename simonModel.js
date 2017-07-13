@@ -8,18 +8,19 @@ class SimonModel {
     // set level, this will increase in increments of one
     this.level = 1
     this.clicks = 0
-    //this.text
+    this.counter = 0
+    // this.text
   }
   nextRound () {
-    this.level += 1
+    // this.level += 1
     this.clicks = 0
     this.userPattern = []
-    this.setSimonPattern()
-    this.simonPatternFlash()
+    setTimeout(this.setSimonPattern(), 150)
+    setTimeout(this.simonPatternFlash(), 200)
   }
 
   setSimonPattern () {
-    // this.text = ''
+    this.text = ''
     this.possibleText = 'bgrp'
 
     // associate random # with value from initialPattern array // add random generated letter to simonPattern
@@ -29,19 +30,51 @@ class SimonModel {
     this.simonPattern.push(this.text)
     console.log(this.simonPattern)
   }
+  // counter () {
+  //   if (this.counter < this.level) {
+  //     setTimeout(this.simonPatternFlash, 500)
+  //   }
+  // }
   simonPatternFlash () {
     for (let i = 0; i < this.simonPattern.length; i++) {
       if (this.simonPattern[i] === 'g') {
-        $('.green').addClass('flash')
+        setTimeout(function () {
+          $('.green').addClass('flash')
+        }, (i + 1) * 1000)
+        setTimeout(function () {
+          $('.green').removeClass('flash')
+        }, i  * 1000)
       } else if (this.simonPattern[i] === 'b') {
-        $('.blue').addClass('flash')
+        setTimeout(function () {
+          $('.blue').addClass('flash')
+        }, (i + 1)  * 1000)
+        setTimeout(function () {
+          $('.blue').removeClass('flash')
+        }, i  * 1000)
       } else if (this.simonPattern[i] === 'r') {
-        $('.red').addClass('flash')
-      } else {
-        $('.purple').addClass('flash')
+        setTimeout(function () {
+          $('.red').addClass('flash')
+        }, (i + 1)  * 1000)
+        setTimeout(function () {
+          $('.red').removeClass('flash')
+        }, i * 1000)
+      } else if (this.simonPattern[i] === 'p') {
+        setTimeout(function () {
+          $('.purple').addClass('flash')
+        }, (i + 1) * 1000)
+        setTimeout(function () {
+          $('.purple').removeClass('flash')
+        }, i * 1000)
       }
+
+      // this.counter += 1
     }
+    // if (this.counter < this.level) {
+    //   this.counter += 1
+    //   setTimeout(this.simonPatternFlash(), 300)
+    // }
   }
+
   addToUserPattern (x) {
     // add user choice to user pattern
     this.userPattern.push(x)
@@ -53,24 +86,32 @@ class SimonModel {
     this.simonPattern = []
   }
 
-  newGame () {
-    console.log('new game')
-  }
   // create method to compare simonPattern to userPattern
   comparePattern () {
     // compare pattern if match
-    for (let i = 0; i < this.level; i++) {
-      if (this.userPattern[i] === this.simonPattern[i]) {
-        console.log('match')
-        this.nextRound()
-      } else {
-        console.log('no match')
-        this.playGame()
+    // run every click, 2 possibles, if userclicks length is shorter wait if equal length check
+    function compareCheck (array1, array2) {
+      for (let i = 0; i < array1.length; i++) {
+        if (array1[i] !== array2[i]) {
+          return false
+        }
       }
+      return true
+    }
+    if (this.simonPattern.length === this.userPattern.length && compareCheck(this.simonPattern, this.userPattern)) {
+      this.level += 1
+      this.nextRound()
+      console.log('match')
+    } else if (compareCheck(this.userPattern, this.simonPattern.slice(0, this.userPattern.length))) {
+      // this.level += 1
+
+    } else {
+      console.log('no match')
+      this.playGame()
+      this.setSimonPattern()
     }
   }
 }
-
 // arr.forEach ((val) => {
 // find dom circle for each value and change class
 // flashCircle(val)

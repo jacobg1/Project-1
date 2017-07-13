@@ -33,36 +33,35 @@ class SimonView {
     this.model.clicks += 1
     this.model.addToUserPattern('b')
     console.log(this.model.userPattern)
-    if (this.model.clicks === this.model.level) {
       this.model.comparePattern()
-    }
+    
   }
   handleRedChange () {
     this.renderRedBlink()
     this.model.clicks += 1
     this.model.addToUserPattern('r')
     console.log(this.model.userPattern)
-    if (this.model.clicks === this.model.level) {
+      console.log(this.model.clicks);
+      console.log(this.model.level);
       this.model.comparePattern()
-    }
+
   }
   handlePurpleChange () {
     this.renderPurpleBlink()
     this.model.clicks += 1
     this.model.addToUserPattern('p')
     console.log(this.model.userPattern)
-    if (this.model.clicks === this.model.level) {
       this.model.comparePattern()
-    }
+
+
   }
   handleGreenChange () {
     this.renderGreenBlink()
     this.model.clicks += 1
     this.model.addToUserPattern('g')
     console.log(this.model.userPattern)
-    if (this.model.clicks === this.model.level) {
       this.model.comparePattern()
-    }
+
   }
   renderGreenBlink () {
     this.inputs.g.addClass('flash')
