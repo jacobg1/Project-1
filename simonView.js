@@ -14,6 +14,7 @@ class SimonView {
     }
     // initialze change handle listeners
     this.listen()
+    $('h1').text('Simon Says')
   }
   // associate event listeners with inputs
   listen () {
@@ -68,11 +69,11 @@ class SimonView {
   // set winning condition if level is 10 and clicks are also 10
   // this will only check for a win if
   winCheck () {
-    if (this.model.level === 10 && this.model.level === this.model.clicks) {
+    if (this.model.level === 5 && this.model.level === this.model.clicks) {
       $('h1').text('WINNER')
+      throw new Error('win')
     }
   }
-
   renderGreenBlink () {
     $('.green').fadeOut(100).fadeIn(100)
   }
