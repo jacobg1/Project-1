@@ -24,7 +24,6 @@ span {
   color: red;
 }
 body {
-/*background-color: #454591;*/
 background-color: #17292b;
 background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
 text-align: center;
@@ -83,32 +82,4 @@ border: 3px solid black;
   background-color: #ab17ab;
   clip: rect(150px, 300px, 300px, 150px);
 	width: 296px;
-}
-.flash {
-  -moz-animation: flash 1s ease-out;
-  -moz-animation-iteration-count: 1;
-
-  -webkit-animation: flash 1s ease-out;
-  -webkit-animation-iteration-count: 1;
-
-  -ms-animation: flash 1s ease-out;
-  -ms-animation-iteration-count: 1;
-}
-
-@-webkit-keyframes flash {
-    0% { background-color: none; }
-    50% { background-color: #fbf8b2; }
-    100% { background-color: none; }
-}
-
-@-moz-keyframes flash {
-    0% { background-color: none; }
-    50% { background-color: #fbf8b2; }
-    100% { background-color: none; }
-}
-
-@-ms-keyframes flash {
-    0% { background-color: none; }
-    50% { background-color: #fbf8b2; }
-    100% { background-color: none; }
 }
