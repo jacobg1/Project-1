@@ -43,7 +43,7 @@ class SimonView {
     this.model.clicks += 1
     this.winCheck()
     this.model.addToUserPattern('b')
-    console.log(this.model.userPattern)
+    // console.log(this.model.userPattern)
     this.model.comparePattern()
   }
   handleRedChange () {
@@ -52,7 +52,7 @@ class SimonView {
     this.model.clicks += 1
     this.winCheck()
     this.model.addToUserPattern('r')
-    console.log(this.model.userPattern)
+    // console.log(this.model.userPattern)
     this.model.comparePattern()
   }
   handlePurpleChange () {
@@ -61,7 +61,7 @@ class SimonView {
     this.model.clicks += 1
     this.winCheck()
     this.model.addToUserPattern('p')
-    console.log(this.model.userPattern)
+    // console.log(this.model.userPattern)
     this.model.comparePattern()
   }
   handleGreenChange () {
@@ -70,7 +70,7 @@ class SimonView {
     this.model.clicks += 1
     this.winCheck()
     this.model.addToUserPattern('g')
-    console.log(this.model.userPattern)
+    // console.log(this.model.userPattern)
     this.model.comparePattern()
   }
   // set winning condition if level is 4 and clicks are also 10

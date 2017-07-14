@@ -24,7 +24,7 @@ class SimonModel {
       this.text = this.possibleText.charAt(Math.floor(Math.random() * this.possibleText.length))
     }
     this.simonPattern.push(this.text)
-    console.log(this.simonPattern)
+    // console.log(this.simonPattern)
   }
   simonPatternFlash () {
     let inputs = {
@@ -38,13 +38,13 @@ class SimonModel {
       let char = this.simonPattern[i]
 
       setTimeout(function () {
-        $('#sound')[0].play()
+        this.sound.play()
         inputs[char].fadeOut(100).fadeIn(100)
-        console.log(char, inputs[char])
+        // console.log(char, inputs[char])
       }, (i + 1) * 1000)
       setTimeout(function () {
         inputs[char].removeClass('flash')
-        console.log(char, inputs[char])
+        // console.log(char, inputs[char])
       }, (i + 0.7) * 1000)
     }
   }
@@ -75,11 +75,11 @@ class SimonModel {
     if (this.simonPattern.length === this.userPattern.length && compareCheck(this.simonPattern, this.userPattern)) {
       this.level += 1
       this.nextRound()
-      console.log('match')
+      // console.log('match')
     } else if (compareCheck(this.userPattern, this.simonPattern.slice(0, this.userPattern.length))) {
 
     } else {
-      console.log('no match')
+      // console.log('no match')
       $('h1').text(`lost after ${this.level} round(s)`)
       return false
     }
