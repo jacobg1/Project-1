@@ -35,6 +35,7 @@ class SimonView {
   // handlers will make each tile blink on click, also increase click level, check for win,
   // add to user pattern and check for winnig condition
   handleBlueChange () {
+    $('#sound')[0].play()
     this.renderBlueBlink()
     this.model.clicks += 1
     this.winCheck()

@@ -16,7 +16,6 @@ class SimonModel {
     this.setSimonPattern()
     this.simonPatternFlash()
   }
-
   setSimonPattern () {
     this.text = ''
     this.possibleText = 'bgrp'
@@ -58,8 +57,6 @@ class SimonModel {
     this.simonPattern = []
     this.nextRound()
   }
-
-
   // create method to compare simonPattern to userPattern
   comparePattern () {
     // compare pattern if match
