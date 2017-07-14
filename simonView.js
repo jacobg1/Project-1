@@ -10,11 +10,14 @@ class SimonView {
       g: $('.green'),
       r: $('.red'),
       p: $('.purple'),
-      startButton: $('.start')
+      startButton: $('.start'),
+      sound: $('#sound'),
+      title: $('h1')
     }
     // initialze change handle listeners
     this.listen()
-    $('h1').text('Simon Says')
+    // reset text to game title
+    this.inputs.title.text('Simon Says')
   }
   // associate event listeners with inputs
   listen () {
@@ -30,13 +33,13 @@ class SimonView {
   // but only move to next round if strings are equal in length as well as value
   handleStartGame () {
     this.model.playGame()
-    $('h1').text('Simon Says')
+    this.inputs.title.text('Simon Says')
   }
-  // handlers will make each tile blink on click, also increase click level, check for win,
-  // add to user pattern and check for winnig condition
+  // handlers will make each tile blink on click, also increase click level, will check for win
+  // and add to user pattern AND play sound ;)
   handleBlueChange () {
-    $('#sound')[0].play()
-    this.renderBlueBlink()
+    this.inputs.sound[0].play()
+    this.inputs.b.fadeOut(100).fadeIn(100)
     this.model.clicks += 1
     this.winCheck()
     this.model.addToUserPattern('b')
@@ -44,8 +47,8 @@ class SimonView {
     this.model.comparePattern()
   }
   handleRedChange () {
-    $('#sound')[0].play()
-    this.renderRedBlink()
+    this.inputs.sound[0].play()
+    this.inputs.r.fadeOut(100).fadeIn(100)
     this.model.clicks += 1
     this.winCheck()
     this.model.addToUserPattern('r')
@@ -53,8 +56,8 @@ class SimonView {
     this.model.comparePattern()
   }
   handlePurpleChange () {
-    $('#sound')[0].play()
-    this.renderPurpleBlink()
+    this.inputs.sound[0].play()
+    this.inputs.p.fadeOut(100).fadeIn(100)
     this.model.clicks += 1
     this.winCheck()
     this.model.addToUserPattern('p')
@@ -62,33 +65,20 @@ class SimonView {
     this.model.comparePattern()
   }
   handleGreenChange () {
-    $('#sound')[0].play()
-    this.renderGreenBlink()
+    this.inputs.sound[0].play()
+    this.inputs.g.fadeOut(100).fadeIn(100)
     this.model.clicks += 1
     this.winCheck()
     this.model.addToUserPattern('g')
     console.log(this.model.userPattern)
     this.model.comparePattern()
   }
-  // set winning condition if level is 10 and clicks are also 10
+  // set winning condition if level is 4 and clicks are also 10
   // this will only check for a win if
   winCheck () {
-    if (this.model.level === 10 && this.model.level === this.model.clicks) {
-      $('h1').text('win')
+    if (this.model.level === 4 && this.model.level === this.model.clicks) {
+      this.inputs.title.text('WINNNNNER')
       throw new Error('win')
     }
   }
-  renderGreenBlink () {
-    $('.green').fadeOut(100).fadeIn(100)
-  }
-  renderRedBlink () {
-    $('.red').fadeOut(100).fadeIn(100)
-  }
-  renderBlueBlink () {
-    $('.blue').fadeOut(100).fadeIn(100)
-  }
-  renderPurpleBlink () {
-    $('.purple').fadeOut(100).fadeIn(100)
-  }
-
 }

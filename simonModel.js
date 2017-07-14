@@ -8,9 +8,9 @@ class SimonModel {
     // set level, this will increase in increments of one
     this.level = 1
     this.clicks = 0
-    this.counter = 0
   }
   nextRound () {
+    // start next round, set user patter to zero and clicks to zero, add one to simon pattern and make it flash
     this.clicks = 0
     this.userPattern = []
     this.setSimonPattern()
@@ -33,12 +33,13 @@ class SimonModel {
       r: $('.red'),
       p: $('.purple')
     }
+    // loop through simon pattern array and make tiles flash
     for (let i = 0; i < this.simonPattern.length; i++) {
       let char = this.simonPattern[i]
 
       setTimeout(function () {
         $('#sound')[0].play()
-        inputs[char].addClass('flash')
+        inputs[char].fadeOut(100).fadeIn(100)
         console.log(char, inputs[char])
       }, (i + 1) * 1000)
       setTimeout(function () {
@@ -60,8 +61,9 @@ class SimonModel {
   }
   // create method to compare simonPattern to userPattern
   comparePattern () {
-    // compare pattern if match
-    // run every click, 2 possibles, if userclicks length is shorter wait if equal length check
+    // compare pattern each click and if each succesive click matches the simon pattern
+    // AND the length of the two arrays are the same move to next round
+    // if any of the above mentioned condition are NOT met user loses the game
     function compareCheck (array1, array2) {
       for (let i = 0; i < array1.length; i++) {
         if (array1[i] !== array2[i]) {
@@ -78,7 +80,7 @@ class SimonModel {
 
     } else {
       console.log('no match')
-      $('h1').text('try again!')
+      $('h1').text(`lost after ${this.level} round(s)`)
       return false
     }
   }
