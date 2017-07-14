@@ -82,3 +82,9 @@ border: 3px solid black;
   clip: rect(150px, 300px, 300px, 150px);
 	width: 296px;
 }
+@media (max-width: 600px) {
+  body {
+    display: block;
+  }
+
+}
