@@ -37,6 +37,7 @@ class SimonModel {
       let char = this.simonPattern[i]
 
       setTimeout(function () {
+        $('#sound')[0].play()
         inputs[char].addClass('flash')
         console.log(char, inputs[char])
       }, (i + 1) * 1000)
