@@ -26,13 +26,13 @@ class SimonView {
   // log click for respective button / color and make button flash
   // on click add coresponding color string  to user pattern array
   // compare user pattern to simon pattern if the three following possibilities: when I click each color I want it to check for equality each time
-  //but only move to next round if strings are equal in length as well as value
+  // but only move to next round if strings are equal in length as well as value
   handleStartGame () {
     this.model.playGame()
     $('h1').text('Simon Says')
   }
-  //handlers will make each tile blink on click, also increase click level, check for win,
-  //add to user pattern and check for winnig condition
+  // handlers will make each tile blink on click, also increase click level, check for win,
+  // add to user pattern and check for winnig condition
   handleBlueChange () {
     this.renderBlueBlink()
     this.model.clicks += 1
@@ -63,17 +63,16 @@ class SimonView {
     this.winCheck()
     this.model.addToUserPattern('g')
     console.log(this.model.userPattern)
+    this.model.comparePattern()
   }
-  //set winning condition if level is 10 and clicks are also 10
-  //this will only check for a win if
+  // set winning condition if level is 10 and clicks are also 10
+  // this will only check for a win if
   winCheck () {
     if (this.model.level === 10 && this.model.level === this.model.clicks) {
       $('h1').text('WINNER')
-    } else {
-      this.model.comparePattern()
     }
   }
-  //function to call when I want tiles to blink on click
+
   renderGreenBlink () {
     $('.green').fadeOut(100).fadeIn(100)
   }
