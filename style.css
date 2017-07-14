@@ -4,24 +4,8 @@ h1 {
   color: #00e7ff;
 
 }
-.sig {
-  position: absolute;
-   bottom: 0;
-   width: 644px;
-   height: 20px;
-   margin: 0 auto;
-   padding-bottom: 21px;
-   padding-right: 10px;
-}
-.name {
-  font-family: 'Orbitron', sans-serif;
-
-}
 span {
   color: #00e7ff;
-}
-.year {
-  color: red;
 }
 body {
 background-color: #17292b;
@@ -41,6 +25,22 @@ float: left;
 border-radius: 150px 150px 150px 150px;
 color: black;
 font-weight: bold;
+}
+.year {
+  color: red;
+}
+.name {
+  font-family: 'Orbitron', sans-serif;
+
+}
+.sig {
+  position: absolute;
+   bottom: 0;
+   width: 644px;
+   height: 20px;
+   margin: 0 auto;
+   padding-bottom: 21px;
+   padding-right: 10px;
 }
 .container {
   border: 5px dashed #9a4d4d;
