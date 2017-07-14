@@ -9,10 +9,8 @@ class SimonModel {
     this.level = 1
     this.clicks = 0
     this.counter = 0
-    // this.text
   }
   nextRound () {
-    // this.level += 1
     this.clicks = 0
     this.userPattern = []
     this.setSimonPattern()
@@ -29,11 +27,6 @@ class SimonModel {
     this.simonPattern.push(this.text)
     console.log(this.simonPattern)
   }
-  // counter () {
-  //   if (this.counter < this.level) {
-  //     setTimeout(this.simonPatternFlash, 500)
-  //   }
-  // }
   simonPatternFlash () {
     let inputs = {
       b: $('.blue'),
@@ -42,10 +35,8 @@ class SimonModel {
       p: $('.purple')
     }
     for (let i = 0; i < this.simonPattern.length; i++) {
-      // if (this.simonPattern[i] === 'g') {
       let char = this.simonPattern[i]
 
-      // let that = this
       setTimeout(function () {
         inputs[char].addClass('flash')
         console.log(char, inputs[char])
@@ -56,7 +47,6 @@ class SimonModel {
       }, (i + 0.7) * 1000)
     }
   }
-
   addToUserPattern (x) {
     // add user choice to user pattern
     this.userPattern.push(x)
@@ -68,6 +58,7 @@ class SimonModel {
     this.simonPattern = []
     this.nextRound()
   }
+
 
   // create method to compare simonPattern to userPattern
   comparePattern () {
@@ -86,18 +77,11 @@ class SimonModel {
       this.nextRound()
       console.log('match')
     } else if (compareCheck(this.userPattern, this.simonPattern.slice(0, this.userPattern.length))) {
-      // this.level += 1
 
     } else {
       console.log('no match')
-      alert('loser')
-      // this.playGame()
-
+      $('h1').text('try again!')
+      return false
     }
   }
 }
-// arr.forEach ((val) => {
-// find dom circle for each value and change class
-// flashCircle(val)
-// }
-// check only after lengths are the same dont check until this
