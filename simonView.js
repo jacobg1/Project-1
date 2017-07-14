@@ -73,8 +73,8 @@ class SimonView {
   // set winning condition if level is 10 and clicks are also 10
   // this will only check for a win if
   winCheck () {
-    if (this.model.level === 2) {
-      $('h1').text('WINNER')
+    if (this.model.level === 3 && this.model.level === this.model.clicks) {
+      $('h1').text('win')
       throw new Error('win')
     }
   }
