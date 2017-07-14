@@ -8,8 +8,7 @@ span {
   color: #00e7ff;
 }
 body {
-/*background-color: #17292b;*/
-background-color: green;
+background-color: #17292b;
 background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
 text-align: center;
 display: flex;
