@@ -1,7 +1,5 @@
 # Project-1
 
-log user stories
-list bronze, silver and gold plans
 
 bronze plan: functional game, no stylings
 

@@ -76,8 +76,8 @@ class SimonView {
   // set winning condition if level is 4 and clicks are also 10
   // this will only check for a win if
   winCheck () {
-    if (this.model.level === 4 && this.model.level === this.model.clicks) {
-      this.inputs.title.text('WINNNNNER')
+    if (this.model.level === 3 && this.model.level === this.model.clicks) {
+      this.inputs.title.text('YOU WIN')
       throw new Error('win')
     }
   }

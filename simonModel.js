@@ -45,7 +45,7 @@ class SimonModel {
       setTimeout(function () {
         inputs[char].removeClass('flash')
         // console.log(char, inputs[char])
-      }, (i + 0.7) * 1000)
+      }, (i + 1.3) * 1000)
     }
   }
   addToUserPattern (x) {
@@ -81,7 +81,6 @@ class SimonModel {
     } else {
       // console.log('no match')
       $('h1').text(`lost after ${this.level} round(s)`)
-      return false
     }
   }
 }
