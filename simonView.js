@@ -44,6 +44,7 @@ class SimonView {
     this.model.comparePattern()
   }
   handleRedChange () {
+    $('#sound')[0].play()
     this.renderRedBlink()
     this.model.clicks += 1
     this.winCheck()
@@ -52,6 +53,7 @@ class SimonView {
     this.model.comparePattern()
   }
   handlePurpleChange () {
+    $('#sound')[0].play()
     this.renderPurpleBlink()
     this.model.clicks += 1
     this.winCheck()
@@ -60,6 +62,7 @@ class SimonView {
     this.model.comparePattern()
   }
   handleGreenChange () {
+    $('#sound')[0].play()
     this.renderGreenBlink()
     this.model.clicks += 1
     this.winCheck()
@@ -70,7 +73,7 @@ class SimonView {
   // set winning condition if level is 10 and clicks are also 10
   // this will only check for a win if
   winCheck () {
-    if (this.model.level === 5 && this.model.level === this.model.clicks) {
+    if (this.model.level === 2) {
       $('h1').text('WINNER')
       throw new Error('win')
     }
