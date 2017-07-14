@@ -1,6 +1,7 @@
 h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 33px;
+  color: #00e7ff;
 
 }
 .sig {
@@ -9,7 +10,8 @@ h1 {
    width: 644px;
    height: 20px;
    margin: 0 auto;
-   padding-bottom: 175px;
+   padding-bottom: 21px;
+   padding-right: 10px;
 }
 .name {
   font-family: 'Orbitron', sans-serif;
@@ -22,25 +24,28 @@ span {
   color: red;
 }
 body {
+/*background-color: #454591;*/
+background-color: #17292b;
+background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
 text-align: center;
-background-color: green;
 display: flex;
 justify-content: center;
 padding-top: 130px;
 }
 p {
-  color: #d9d9e8;
+  color: white;
   text-align: center;
 }
 button {
 float: left;
 -webkit-border-radius: 175px 175px 175px 150px;
 border-radius: 150px 150px 150px 150px;
-color: white;
+color: black;
 font-weight: bold;
 }
 .container {
-  background-color: #cdfaff;
+  border: 5px dashed #9a4d4d;
+  background-color: #304446;
   padding-left: 10px;
   padding-bottom: 10px;
   width: 400px;
@@ -50,7 +55,7 @@ font-weight: bold;
 .blue, .green, .purple, .red  {
   margin-left: 50px;
   height: 290px;
-  border-color: black:
+  border-color: black;
 	-webkit-border-radius: 175px 175px 175px 150px;
 	border-radius: 175px 175px 175px 175px;
 	position: absolute;
@@ -59,23 +64,23 @@ font-weight: bold;
 border: 3px solid black;
 }
 .blue {
-  background-color: blue;
+  background-color: #6a6af9;
   clip: rect(0px, 300px, 150px, 150px);
 	width: 296px;
 }
 .red {
-  background-color: red;
+  background-color: #e86565;
   clip: rect(0px, 150px, 150px, 0px);
 	width: 300px;
 }
 .green {
-  background-color: green;
+  background-color: #1cb51c;
   clip: rect(150px, 150px, 300px, 0px);
 	width: 300px;
 
 }
 .purple {
-  background-color: purple;
+  background-color: #ab17ab;
   clip: rect(150px, 300px, 300px, 150px);
 	width: 296px;
 }
