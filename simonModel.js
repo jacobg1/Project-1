@@ -8,6 +8,7 @@ class SimonModel {
     // set level, this will increase in increments of one
     this.level = 1
     this.clicks = 0
+    this.soundOn = false
   }
   nextRound () {
     // start next round, set user patter to zero and clicks to zero, add one to simon pattern and make it flash
@@ -36,16 +37,18 @@ class SimonModel {
     // loop through simon pattern array and make tiles flash
     for (let i = 0; i < this.simonPattern.length; i++) {
       let char = this.simonPattern[i]
-
-      setTimeout(function () {
-        this.sound.play()
-        inputs[char].fadeOut(100).fadeIn(100)
-        // console.log(char, inputs[char])
-      }, (i + 1) * 1000)
-      setTimeout(function () {
-        inputs[char].removeClass('flash')
-        // console.log(char, inputs[char])
-      }, (i + 1.3) * 1000)
+      if (this.soundOn) {
+        setTimeout(function () {
+          this.sound.play()
+          inputs[char].fadeOut(100).fadeIn(100)
+          // console.log(char, inputs[char])
+        }, (i + 1) * 1000)
+      } else {
+        setTimeout(function () {
+          inputs[char].fadeOut(100).fadeIn(100)
+          // console.log(char, inputs[char])
+        }, (i + 1) * 1000)
+      }
     }
   }
   addToUserPattern (x) {
