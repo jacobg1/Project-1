@@ -20,12 +20,22 @@ p {
   text-align: center;
 }
 button {
-float: left;
 -webkit-border-radius: 150px 150px 150px 150px;
 border-radius: 150px 150px 150px 150px;
 color: black;
-margin-left: 10px;
 font-weight: bold;
+}
+.beep {
+
+}
+.button2{
+  float: left;
+  padding-right: 400px;
+  padding-top: 15px;
+}
+.start {
+  float: left;
+
 }
 .year {
   color: red;
@@ -37,8 +47,6 @@ font-weight: bold;
 .sig {
   position: absolute;
   font-family: 'Lobster';
-
-
   font-size: 16px;
    bottom: 0;
    width: 644px;
