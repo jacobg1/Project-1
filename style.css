@@ -1,6 +1,6 @@
 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 33px;
+  font-size: 38px;
   color: #00e7ff;
 
 }
@@ -21,9 +21,10 @@ p {
 }
 button {
 float: left;
--webkit-border-radius: 175px 175px 175px 150px;
+-webkit-border-radius: 150px 150px 150px 150px;
 border-radius: 150px 150px 150px 150px;
 color: black;
+margin-left: 10px;
 font-weight: bold;
 }
 .year {
@@ -35,28 +36,32 @@ font-weight: bold;
 }
 .sig {
   position: absolute;
+  font-family: 'Lobster';
+
+
+  font-size: 16px;
    bottom: 0;
    width: 644px;
    height: 20px;
    margin: 0 auto;
-   padding-bottom: 22px;
-   padding-right: 10px;
+   padding-bottom: 26px;
+   padding-left: 83px;
 }
 .container {
   border: 5px dashed #9a4d4d;
   background-color: #304446;
   padding-left: 10px;
   padding-bottom: 10px;
-  width: 420px;
-  height: 420px;
+  width: 500px;
+  height: 500px;
   position: absolute;
 }
 .blue, .green, .purple, .red  {
   margin-left: 50px;
-  height: 293px;
+  height: 370px;
   border-color: black;
-	-webkit-border-radius: 175px 175px 175px 150px;
-	border-radius: 175px 175px 175px 175px;
+	-webkit-border-radius: 190px 190px 190px 190px;
+	border-radius: 190px 190px 190px 190px;
 	position: absolute;
 }
 .blue:hover, .green:hover, .purple:hover, .red:hover  {
@@ -64,23 +69,23 @@ border: 3px solid black;
 }
 .blue {
   background-color: #6a6af9;
-  clip: rect(0px, 300px, 150px, 150px);
-	width: 296px;
+  clip: rect(0px, 395px, 190px, 187px);
+	width: 375px;
 }
 .red {
   background-color: #e86565;
-  clip: rect(0px, 150px, 150px, 0px);
-	width: 300px;
+  clip: rect(0px, 187px, 190px, 0px);
+	width: 370px;
 }
 .green {
   background-color: #1cb51c;
-  clip: rect(150px, 150px, 300px, 0px);
-	width: 300px;
+  clip: rect(190px, 187px, 390px, 0px);
+	width: 370px;
 }
 .purple {
   background-color: #ab17ab;
-  clip: rect(150px, 300px, 300px, 150px);
-	width: 296px;
+  clip: rect(190px, 395px, 390px, 187px);
+	width: 375px;
 }
 @media (max-width: 600px) {
   body {
