@@ -12,7 +12,8 @@ class SimonView {
       p: $('.purple'),
       startButton: $('.start'),
       sound: $('#sound'),
-      title: $('h1')
+      title: $('h1'),
+      soundButton: $('.beep'),
     }
     // initialze change handle listeners
     this.listen()
@@ -26,6 +27,21 @@ class SimonView {
     this.inputs.r.on('click', this.handleRedChange.bind(this))
     this.inputs.p.on('click', this.handlePurpleChange.bind(this))
     this.inputs.startButton.on('click', this.handleStartGame.bind(this))
+    this.inputs.soundButton.on('click', this.handleSound.bind(this))
+
+  }
+  handleSound () {
+    this.model.soundOn = true
+    this.inputs.b.on('click', this.playSound.bind(this))
+    this.inputs.g.on('click', this.playSound.bind(this))
+    this.inputs.r.on('click', this.playSound.bind(this))
+    this.inputs.p.on('click', this.playSound.bind(this))
+  }
+  playSound () {
+    if (this.model.soundOn === true) {
+      this.inputs.sound[0].play()
+
+    }
   }
   // log click for respective button / color and make button flash
   // on click add coresponding color string  to user pattern array
@@ -38,7 +54,7 @@ class SimonView {
   // handlers will make each tile blink on click, also increase click level, will check for win
   // and add to user pattern AND play sound ;)
   handleBlueChange () {
-    this.inputs.sound[0].play()
+    // this.inputs.sound[0].play()
     this.inputs.b.fadeOut(100).fadeIn(100)
     this.model.clicks += 1
     this.winCheck()
@@ -47,7 +63,7 @@ class SimonView {
     this.model.comparePattern()
   }
   handleRedChange () {
-    this.inputs.sound[0].play()
+    // this.inputs.sound[0].play()
     this.inputs.r.fadeOut(100).fadeIn(100)
     this.model.clicks += 1
     this.winCheck()
@@ -56,7 +72,7 @@ class SimonView {
     this.model.comparePattern()
   }
   handlePurpleChange () {
-    this.inputs.sound[0].play()
+    // this.inputs.sound[0].play()
     this.inputs.p.fadeOut(100).fadeIn(100)
     this.model.clicks += 1
     this.winCheck()
@@ -65,7 +81,7 @@ class SimonView {
     this.model.comparePattern()
   }
   handleGreenChange () {
-    this.inputs.sound[0].play()
+    // this.inputs.sound[0].play()
     this.inputs.g.fadeOut(100).fadeIn(100)
     this.model.clicks += 1
     this.winCheck()
