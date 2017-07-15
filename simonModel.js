@@ -83,7 +83,7 @@ class SimonModel {
 
     } else {
       // console.log('no match')
-      $('h1').text(`lost after ${this.level} round(s)`)
+      $('h1').text(`lost after ${this.level - 1} round(s)`)
     }
   }
 }
