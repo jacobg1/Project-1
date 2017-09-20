@@ -1,8 +1,16 @@
-# Project-1
 
+# Simon-Says
 
-bronze plan: functional game, no stylings
+Created using object oriented javascript with JQuery for DOM manipulation.
 
-silver: functional game plus it looks really cool, game-board looks like simon says
+### bronze plan
 
-gold: add timer to game, randomize colors, button to add more pieces to game board
+* functional game, no stylings
+
+### silver
+
+* functional game plus it looks really cool, game-board looks like simon says
+
+### gold
+
+* add timer to game, randomize colors, button to add more pieces to game board
