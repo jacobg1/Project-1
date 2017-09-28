@@ -1,7 +1,7 @@
 
 # Simon-Says
 
-Created using object oriented javascript with JQuery for DOM manipulation.
+Created using javascript classes with JQuery for DOM manipulation.
 
 ### bronze plan
 
