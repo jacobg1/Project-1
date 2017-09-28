@@ -9,6 +9,7 @@ class SimonModel {
     this.level = 1
     this.clicks = 0
     this.soundOn = false
+    this.input_allowed = false
   }
   nextRound () {
     // start next round, set user patter to zero and clicks to zero, add one to simon pattern and make it flash
@@ -34,21 +35,29 @@ class SimonModel {
       r: $('.red'),
       p: $('.purple')
     }
+
+    // copy of simonModel context
+    let self = this
+
+    // disable input while pattern plays
+    self.input_allowed = false
+
     // loop through simon pattern array and make tiles flash
     for (let i = 0; i < this.simonPattern.length; i++) {
       let char = this.simonPattern[i]
-      if (this.soundOn) {
-        setTimeout(function () {
+      setTimeout(function () {
+        // Only play the beep if sound is enabled
+        if (self.soundOn) {
           this.sound.play()
-          inputs[char].fadeOut(100).fadeIn(100)
-          // console.log(char, inputs[char])
-        }, (i + 1) * 1000)
-      } else {
-        setTimeout(function () {
-          inputs[char].fadeOut(100).fadeIn(100)
-          // console.log(char, inputs[char])
-        }, (i + 1) * 1000)
-      }
+        }
+        inputs[char].fadeOut(100).fadeIn(100)
+        // console.log(char, inputs[char])
+
+        // Accept button presses after the last color has been played
+        if (i === self.simonPattern.length - 1) {
+          self.input_allowed = true
+        }
+      }, (i + 1) * 1000)
     }
   }
   addToUserPattern (x) {

@@ -22,20 +22,33 @@ class SimonView {
   }
   // associate event listeners with inputs
   listen () {
-    this.inputs.b.on('click', this.handleBlueChange.bind(this))
-    this.inputs.g.on('click', this.handleGreenChange.bind(this))
-    this.inputs.r.on('click', this.handleRedChange.bind(this))
-    this.inputs.p.on('click', this.handlePurpleChange.bind(this))
+    this.inputs.b.on('click', this.handleButtonChange.bind({view: this, code: 'b'}))
+    this.inputs.g.on('click', this.handleButtonChange.bind({view: this, code: 'g'}))
+    this.inputs.r.on('click', this.handleButtonChange.bind({view: this, code: 'r'}))
+    this.inputs.p.on('click', this.handleButtonChange.bind({view: this, code: 'p'}))
     this.inputs.startButton.on('click', this.handleStartGame.bind(this))
     this.inputs.soundButton.on('click', this.handleSound.bind(this))
 
-  }
-  handleSound () {
-    this.model.soundOn = true
+    // moved from handleSound
     this.inputs.b.on('click', this.playSound.bind(this))
     this.inputs.g.on('click', this.playSound.bind(this))
     this.inputs.r.on('click', this.playSound.bind(this))
     this.inputs.p.on('click', this.playSound.bind(this))
+
+  }
+  handleSound () {
+    // button playSound() binding should only happen once.
+    // Moved to listen() above
+
+    // When clicked, toggle soundOn
+    this.model.soundOn = !this.model.soundOn
+
+    // Change the button text depending on the current state
+    if (this.model.soundOn) {
+      this.inputs.soundButton.text('Sound On')
+    } else {
+      this.inputs.soundButton.text('Sound Off')
+    }
   }
   playSound () {
     if (this.model.soundOn === true) {
@@ -53,41 +66,16 @@ class SimonView {
   }
   // handlers will make each tile blink on click, also increase click level, will check for win
   // and add to user pattern AND play sound ;)
-  handleBlueChange () {
+  handleButtonChange () {
     // this.inputs.sound[0].play()
-    this.inputs.b.fadeOut(100).fadeIn(100)
-    this.model.clicks += 1
-    this.winCheck()
-    this.model.addToUserPattern('b')
-    // console.log(this.model.userPattern)
-    this.model.comparePattern()
-  }
-  handleRedChange () {
-    // this.inputs.sound[0].play()
-    this.inputs.r.fadeOut(100).fadeIn(100)
-    this.model.clicks += 1
-    this.winCheck()
-    this.model.addToUserPattern('r')
-    // console.log(this.model.userPattern)
-    this.model.comparePattern()
-  }
-  handlePurpleChange () {
-    // this.inputs.sound[0].play()
-    this.inputs.p.fadeOut(100).fadeIn(100)
-    this.model.clicks += 1
-    this.winCheck()
-    this.model.addToUserPattern('p')
-    // console.log(this.model.userPattern)
-    this.model.comparePattern()
-  }
-  handleGreenChange () {
-    // this.inputs.sound[0].play()
-    this.inputs.g.fadeOut(100).fadeIn(100)
-    this.model.clicks += 1
-    this.winCheck()
-    this.model.addToUserPattern('g')
-    // console.log(this.model.userPattern)
-    this.model.comparePattern()
+    if (this.view.model.input_allowed) {
+      this.view.inputs[this.code].fadeOut(100).fadeIn(100)
+      this.view.model.clicks += 1
+      this.view.winCheck()
+      this.view.model.addToUserPattern(this.code)
+      // console.log(this.model.userPattern)
+      this.view.model.comparePattern()
+    }
   }
   // set winning condition if level is 4 and clicks are also 10
   // this will only check for a win if
